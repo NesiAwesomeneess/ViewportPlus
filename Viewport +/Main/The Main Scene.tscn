@@ -1,0 +1,382 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://Main/ViewportTexture.gd" type="Script" id=1]
+[ext_resource path="res://Main/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Main/Player/assets/PlayerSkid.png" type="Texture" id=3]
+[ext_resource path="res://Main/Player/assets/PlayerIdle2.png" type="Texture" id=4]
+[ext_resource path="res://Main/Player/assets/PlayerIdle1.png" type="Texture" id=5]
+[ext_resource path="res://Main/Player/assets/PlayerRun6.png" type="Texture" id=6]
+[ext_resource path="res://Main/Player/assets/PlayerRun3.png" type="Texture" id=7]
+[ext_resource path="res://Main/Player/assets/PlayerIdle3.png" type="Texture" id=8]
+[ext_resource path="res://Main/Player/assets/PlayerRun5.png" type="Texture" id=9]
+[ext_resource path="res://Main/assets/Trees.png" type="Texture" id=10]
+[ext_resource path="res://Main/assets/light.png" type="Texture" id=11]
+[ext_resource path="res://Main/Player/assets/PlayerRun1.png" type="Texture" id=12]
+[ext_resource path="res://Main/Player/assets/PlayerIdle4.png" type="Texture" id=13]
+[ext_resource path="res://Main/assets/Ground.png" type="Texture" id=14]
+[ext_resource path="res://Main/Player/assets/PlayerRun4.png" type="Texture" id=15]
+[ext_resource path="res://Main/Player/assets/PlayerRun2.png" type="Texture" id=16]
+
+[sub_resource type="TileSet" id=16]
+0/name = "Trees.png 0"
+0/texture = ExtResource( 10 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 48, 64, 96 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = -1
+1/name = "Trees.png 1"
+1/texture = ExtResource( 10 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 64, 48, 16, 96 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = -1
+2/name = "Trees.png 2"
+2/texture = ExtResource( 10 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 80, 48, 16, 96 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = -1
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 0, 0, 80, 0, 80, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 80, 0, 80, 16, 0, 16 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="TileSet" id=7]
+0/name = "Ground.png 0"
+0/texture = ExtResource( 14 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 16, 80, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 1 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 2 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "Ground.png 1"
+1/texture = ExtResource( 14 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 80, 16, 16, 16 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/occluder = SubResource( 3 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 4 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "Ground.png 2"
+2/texture = ExtResource( 14 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 32, 16, 16, 16 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/occluder = SubResource( 5 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 6 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 4, 6 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 3, 1 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 4, 5 )
+
+[sub_resource type="CanvasItemMaterial" id=11]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Skid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 16 ), ExtResource( 7 ), ExtResource( 15 ), ExtResource( 9 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 12.0
+} ]
+
+[sub_resource type="Animation" id=13]
+length = 6.0
+loop = true
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5.08333, 5.33333, 5.83333, 5.91667 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Run" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=15]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Skid" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="ViewportTexture" id=17]
+viewport_path = NodePath("Viewport")
+
+[node name="Game" type="Node2D"]
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 370, 230 )
+transparent_bg = true
+usage = 0
+render_target_v_flip = true
+__meta__ = {
+"_editor_description_": "Enable transparent background."
+}
+
+[node name="Main" type="Node2D" parent="Viewport"]
+
+[node name="BackGround" type="ParallaxBackground" parent="Viewport/Main"]
+
+[node name="Layer" type="ParallaxLayer" parent="Viewport/Main/BackGround"]
+motion_scale = Vector2( 0.9, 1 )
+
+[node name="Trees" type="TileMap" parent="Viewport/Main/BackGround/Layer"]
+tile_set = SubResource( 16 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 393213, 1, 0, 393214, 0, 0, 327682, 0, 0, 327686, 0, 0, 327690, 0, 0, 327694, 0, 0, 327698, 0, 0, 327702, 2, 0, 589809, 1, 0, 589810, 0, 0, 589814, 0, 0, 589818, 2, 0, 524313, 1, 0, 524314, 0, 0, 524318, 0, 0, 524322, 2, 0 )
+
+[node name="Ground" type="TileMap" parent="Viewport/Main"]
+tile_set = SubResource( 7 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 393218, 2, 0, 393219, 2, 0, 393232, 2, 0, 393233, 2, 0, 458754, 1, 0, 458755, 1, 0, 458768, 1, 0, 458769, 1, 0, 655355, 0, 0, 589824, 0, 0, 589829, 0, 0, 589834, 0, 0, 589839, 0, 0, 589844, 0, 0, 720891, 1, 0, 720892, 1, 0, 720893, 1, 0, 720894, 1, 0, 720895, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655380, 1, 0, 655381, 1, 0, 655382, 1, 0, 655383, 1, 0, 655384, 1, 0, 786427, 1, 0, 786428, 1, 0, 786429, 1, 0, 786430, 1, 0, 786431, 1, 0, 720896, 1, 0, 720897, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 1, 0, 720916, 1, 0, 720917, 1, 0, 720918, 1, 0, 720919, 1, 0, 720920, 1, 0, 851953, 0, 0, 851958, 0, 0, 851963, 1, 0, 851964, 1, 0, 851965, 1, 0, 786454, 1, 0, 786455, 1, 0, 786456, 1, 0, 786457, 0, 0, 786462, 0, 0, 917489, 1, 0, 917490, 1, 0, 917491, 1, 0, 917492, 1, 0, 917493, 1, 0, 917494, 1, 0, 917495, 1, 0, 917496, 1, 0, 917497, 1, 0, 917498, 1, 0, 917499, 1, 0, 917500, 1, 0, 917501, 1, 0, 851990, 1, 0, 851991, 1, 0, 851992, 1, 0, 851993, 1, 0, 851994, 1, 0, 851995, 1, 0, 851996, 1, 0, 851997, 1, 0, 851998, 1, 0, 851999, 1, 0, 852000, 1, 0, 852001, 1, 0, 852002, 1, 0, 983025, 1, 0, 983026, 1, 0, 983027, 1, 0, 983028, 1, 0, 983029, 1, 0, 983030, 1, 0, 983031, 1, 0, 983032, 1, 0, 983033, 1, 0, 983034, 1, 0, 983035, 1, 0, 983036, 1, 0, 983037, 1, 0, 917526, 1, 0, 917527, 1, 0, 917528, 1, 0, 917529, 1, 0, 917530, 1, 0, 917531, 1, 0, 917532, 1, 0, 917533, 1, 0, 917534, 1, 0, 917535, 1, 0, 917536, 1, 0, 917537, 1, 0, 917538, 1, 0 )
+
+[node name="Player" type="KinematicBody2D" parent="Viewport/Main"]
+position = Vector2( 166, 133 )
+collision_mask = 2
+script = ExtResource( 2 )
+air_acceleration = 200.0
+
+[node name="Feelings" type="Node2D" parent="Viewport/Main/Player"]
+visible = false
+
+[node name="Checker" type="Area2D" parent="Viewport/Main/Player/Feelings"]
+position = Vector2( 0, 1 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="Box" type="CollisionShape2D" parent="Viewport/Main/Player/Feelings/Checker"]
+position = Vector2( 0, -2 )
+shape = SubResource( 8 )
+
+[node name="Feet" type="Area2D" parent="Viewport/Main/Player/Feelings"]
+position = Vector2( 0, 1 )
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Viewport/Main/Player/Feelings/Feet"]
+modulate = Color( 0.447059, 0.0235294, 0.0235294, 1 )
+position = Vector2( 0, 5 )
+shape = SubResource( 9 )
+
+[node name="HitBox" type="CollisionShape2D" parent="Viewport/Main/Player"]
+visible = false
+modulate = Color( 0.529412, 0.521569, 0.435294, 1 )
+position = Vector2( 0, 1 )
+shape = SubResource( 10 )
+
+[node name="Body" type="AnimatedSprite" parent="Viewport/Main/Player"]
+material = SubResource( 11 )
+frames = SubResource( 12 )
+animation = "Idle"
+frame = 4
+flip_h = true
+
+[node name="Animations" type="AnimationPlayer" parent="Viewport/Main/Player/Body"]
+autoplay = "Idle"
+anims/Idle = SubResource( 13 )
+anims/Run = SubResource( 14 )
+anims/Skid = SubResource( 15 )
+
+[node name="Light2D" type="Light2D" parent="Viewport/Main/Player"]
+texture = ExtResource( 11 )
+texture_scale = 0.3
+energy = 0.7
+range_layer_min = -100
+shadow_enabled = true
+
+[node name="Camera" type="Camera2D" parent="Viewport/Main/Player"]
+current = true
+drag_margin_left = 0.05
+drag_margin_top = 0.1
+drag_margin_right = 0.05
+drag_margin_bottom = 0.1
+__meta__ = {
+"_editor_description_": "disable any kind of smoothing or offset in the camera in the viewport for the best results"
+}
+
+[node name="Remote" type="RemoteTransform2D" parent="Viewport/Main/Player/Camera"]
+remote_path = NodePath("../../../../../RenderComponents")
+
+[node name="RenderComponents" type="Node2D" parent="."]
+__meta__ = {
+"_editor_description_": "When you open this project the position of this node will be set to the position of the camera in the subviewport because of the RemoteTransform2D node.
+
+If you don't what this to happen you'll have to link the RemoteTransform2D node to this node through code when you run your game."
+}
+
+[node name="2DCamera" type="Camera2D" parent="RenderComponents"]
+current = true
+smoothing_enabled = true
+
+[node name="ViewportTexture" type="TextureRect" parent="RenderComponents"]
+margin_right = 370.0
+margin_bottom = 230.0
+rect_pivot_offset = Vector2( 160, 90 )
+texture = SubResource( 17 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

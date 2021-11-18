@@ -1,0 +1,169 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Main/Player/assets/PlayerRun3.png" type="Texture" id=1]
+[ext_resource path="res://Main/Player/assets/PlayerIdle4.png" type="Texture" id=2]
+[ext_resource path="res://Main/Player/assets/PlayerIdle1.png" type="Texture" id=3]
+[ext_resource path="res://Main/Player/assets/PlayerIdle3.png" type="Texture" id=4]
+[ext_resource path="res://Main/Player/assets/PlayerIdle2.png" type="Texture" id=5]
+[ext_resource path="res://Main/Player/assets/PlayerSkid.png" type="Texture" id=6]
+[ext_resource path="res://Main/Player/assets/PlayerRun2.png" type="Texture" id=7]
+[ext_resource path="res://Main/Player/assets/PlayerRun6.png" type="Texture" id=8]
+[ext_resource path="res://Main/Player/assets/PlayerRun1.png" type="Texture" id=9]
+[ext_resource path="res://Main/Player/assets/PlayerRun4.png" type="Texture" id=10]
+[ext_resource path="res://Main/Player/Player.gd" type="Script" id=11]
+[ext_resource path="res://Main/Player/assets/PlayerRun5.png" type="Texture" id=12]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 4, 6 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3, 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 5 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Skid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=5]
+resource_name = "Idle"
+length = 6.0
+loop = true
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5.08333, 5.33333, 5.83333, 5.91667 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Run"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Run" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Skid"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Skid" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 2
+script = ExtResource( 11 )
+air_acceleration = 200.0
+
+[node name="Feelings" type="Node2D" parent="."]
+
+[node name="Checker" type="Area2D" parent="Feelings"]
+position = Vector2( 0, 1 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="Box" type="CollisionShape2D" parent="Feelings/Checker"]
+position = Vector2( 0, -2 )
+shape = SubResource( 8 )
+
+[node name="Feet" type="Area2D" parent="Feelings"]
+position = Vector2( 0, 1 )
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Feelings/Feet"]
+modulate = Color( 0.447059, 0.0235294, 0.0235294, 1 )
+position = Vector2( 0, 5 )
+shape = SubResource( 2 )
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+modulate = Color( 0.529412, 0.521569, 0.435294, 1 )
+position = Vector2( 0, 1 )
+shape = SubResource( 3 )
+
+[node name="Body" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+animation = "Run"
+flip_h = true
+
+[node name="Animations" type="AnimationPlayer" parent="Body"]
+autoplay = "Idle"
+anims/Idle = SubResource( 5 )
+anims/Run = SubResource( 6 )
+anims/Skid = SubResource( 7 )
