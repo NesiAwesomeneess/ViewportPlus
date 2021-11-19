@@ -7,7 +7,7 @@ func mouse_position(): #call this function when trying to get the mouse position
 	return scene.get_global_mouse_position()
 
 #For best results read:
-# Tip #1: ensure that all smoothing on the camera in the viewport is diabled (this includes drag margins and camera offsets)
+# Tip #1: ensure that all smoothing on the camera in the viewport is disabled
 # any custom camera movement script attached to the camera inside the viewport should be detached and moved to the 2DCamera node (The camera outside
 #the subviewport)
 
